@@ -6,26 +6,26 @@ using System.Text;
 
 namespace LightNode2.Formatter
 {
-    public class JsonNetContentFormatter : LightNode2.Formatter.ContentFormatterBase
+    public class JsonContentFormatter : LightNode2.Formatter.ContentFormatterBase
     {
         readonly JsonSerializer serializer;
 
-        public JsonNetContentFormatter(string mediaType = "application/json", string ext = "json")
+        public JsonContentFormatter(string mediaType = "application/json", string ext = "json")
             : this(new JsonSerializer(), mediaType, ext)
         {
         }
 
-        public JsonNetContentFormatter(JsonSerializer serializer, string mediaType = "application/json", string ext = "json")
+        public JsonContentFormatter(JsonSerializer serializer, string mediaType = "application/json", string ext = "json")
             : this(serializer, new UTF8Encoding(false), mediaType, ext)
         {
         }
 
-        public JsonNetContentFormatter(Encoding encoding, string mediaType = "application/json", string ext = "json")
+        public JsonContentFormatter(Encoding encoding, string mediaType = "application/json", string ext = "json")
             : this(new JsonSerializer(), encoding, mediaType, ext)
         {
         }
 
-        public JsonNetContentFormatter(JsonSerializer serializer, Encoding encoding, string mediaType = "application/json", string ext = "json")
+        public JsonContentFormatter(JsonSerializer serializer, Encoding encoding, string mediaType = "application/json", string ext = "json")
             : base(mediaType, ext, encoding)
         {
             this.serializer = serializer;
@@ -52,7 +52,7 @@ namespace LightNode2.Formatter
     {
         public IContentFormatter CreateFormatter()
         {
-            return new JsonNetContentFormatter();
+            return new JsonContentFormatter();
         }
     }
 }
