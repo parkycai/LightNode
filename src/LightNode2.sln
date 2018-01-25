@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LightNode2.Formatter.Jil.LZ
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LightNode2.Formatter.MsgPack", "LightNode2.Formatter.MsgPack\LightNode2.Formatter.MsgPack.csproj", "{6605EC49-A49B-4590-817C-42FF261AE664}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LightNode2.Formatter.ProtoBuf", "LightNode2.Formatter.ProtoBuf\LightNode2.Formatter.ProtoBuf.csproj", "{35721DAA-EE59-40EB-95B6-9D58F3E54349}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{6605EC49-A49B-4590-817C-42FF261AE664}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6605EC49-A49B-4590-817C-42FF261AE664}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6605EC49-A49B-4590-817C-42FF261AE664}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35721DAA-EE59-40EB-95B6-9D58F3E54349}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35721DAA-EE59-40EB-95B6-9D58F3E54349}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35721DAA-EE59-40EB-95B6-9D58F3E54349}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35721DAA-EE59-40EB-95B6-9D58F3E54349}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
