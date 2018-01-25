@@ -1,11 +1,11 @@
-﻿using LightNode.Core;
+﻿using LightNode2.Core;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace LightNode.Formatter
+namespace LightNode2.Formatter
 {
     public abstract class ContentFormatterBase : IContentFormatter
     {
