@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LightNode.Server
+namespace LightNode2.Server
 {
     public abstract class LightNodeContract
     {

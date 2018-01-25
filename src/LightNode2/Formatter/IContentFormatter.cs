@@ -2,7 +2,7 @@
 using System.IO;
 using System.Text;
 
-namespace LightNode.Core
+namespace LightNode2.Core
 {
     public interface IContentFormatter
     {

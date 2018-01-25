@@ -1,22 +1,22 @@
-﻿using LightNode.Core;
-using LightNode.Formatter;
+﻿using LightNode2.Core;
+using LightNode2.Formatter;
 using System;
-using LightNode.Diagnostics;
+using LightNode2.Diagnostics;
 
-namespace LightNode.Server
+namespace LightNode2.Server
 {
     public interface ILightNodeOptions
     {
         string ServerEngineId { get; }
         AcceptVerbs DefaultAcceptVerb { get; }
-        LightNode.Core.IContentFormatter DefaultFormatter { get; }
+        LightNode2.Core.IContentFormatter DefaultFormatter { get; }
         ErrorHandlingPolicy ErrorHandlingPolicy { get; }
         LightNodeFilterCollection Filters { get; }
         IOperationCoordinatorFactory OperationCoordinatorFactory { get; }
         OperationMissingHandlingPolicy OperationMissingHandlingPolicy { get; }
         bool ParameterEnumAllowsFieldNameParse { get; }
         bool ParameterStringImplicitNullAsDefault { get; }
-        LightNode.Core.IContentFormatter[] SpecifiedFormatters { get; }
+        LightNode2.Core.IContentFormatter[] SpecifiedFormatters { get; }
         StreamWriteOption StreamWriteOption { get; }
         bool UseOtherMiddleware { get; }
         int[] PassThroughWhenStatusCodesAre { get; }

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace LightNode.Server
+namespace LightNode2.Server
 {
     public interface IOperationCoordinatorFactory
     {
@@ -26,7 +26,7 @@ namespace LightNode.Server
         }
     }
 
-    public class OperationCoordinator : LightNode.Server.IOperationCoordinator
+    public class OperationCoordinator : LightNode2.Server.IOperationCoordinator
     {
         public virtual bool OnStartProcessRequest(ILightNodeOptions options, HttpContext httpContext)
         {

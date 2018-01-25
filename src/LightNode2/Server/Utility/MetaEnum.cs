@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace LightNode.Server
+namespace LightNode2.Server
 {
     internal class MetaEnum : IEnumerable<KeyValuePair<string, object>>
     {

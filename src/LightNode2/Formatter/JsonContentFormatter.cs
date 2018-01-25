@@ -1,12 +1,12 @@
-﻿using LightNode.Core;
+﻿using LightNode2.Core;
 using Newtonsoft.Json;
 using System;
 using System.IO;
 using System.Text;
 
-namespace LightNode.Formatter
+namespace LightNode2.Formatter
 {
-    public class JsonContentFormatter : LightNode.Formatter.ContentFormatterBase
+    public class JsonContentFormatter : LightNode2.Formatter.ContentFormatterBase
     {
         readonly JsonSerializer serializer;
 
@@ -56,7 +56,7 @@ namespace LightNode.Formatter
         }
     }
 
-    public class GZipJsonContentFormatter : LightNode.Formatter.ContentFormatterBase
+    public class GZipJsonContentFormatter : LightNode2.Formatter.ContentFormatterBase
     {
         readonly JsonSerializer serializer;
 

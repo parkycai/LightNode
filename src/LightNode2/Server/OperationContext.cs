@@ -1,4 +1,4 @@
-﻿using LightNode.Core;
+﻿using LightNode2.Core;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LightNode.Server
+namespace LightNode2.Server
 {
     public class OperationContext
     {

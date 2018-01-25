@@ -5,12 +5,12 @@ using System.Reflection;
 using System.Threading.Tasks;
 using System.IO;
 using System.Linq.Expressions;
-using LightNode.Core;
-using LightNode.Diagnostics;
+using LightNode2.Core;
+using LightNode2.Diagnostics;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Primitives;
 
-namespace LightNode.Server
+namespace LightNode2.Server
 {
     internal class OperationHandler
     {

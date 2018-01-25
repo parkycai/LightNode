@@ -1,10 +1,10 @@
-﻿using LightNode.Core;
+﻿using LightNode2.Core;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.IO;
 using System.Net;
 
-namespace LightNode.Server
+namespace LightNode2.Server
 {
     public class ReturnStatusCodeException : Exception
     {

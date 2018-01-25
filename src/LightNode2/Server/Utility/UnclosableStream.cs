@@ -2,7 +2,7 @@
 using System.IO;
 using System.Threading.Tasks;
 
-namespace LightNode.Server
+namespace LightNode2.Server
 {
     // protect stream close
 

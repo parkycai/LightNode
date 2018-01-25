@@ -1,4 +1,4 @@
-﻿using LightNode.Diagnostics;
+﻿using LightNode2.Diagnostics;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LightNode.Server
+namespace LightNode2.Server
 {
     internal static class ParameterBinder
     {

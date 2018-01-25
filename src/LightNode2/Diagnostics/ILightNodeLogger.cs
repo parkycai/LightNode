@@ -1,7 +1,7 @@
 ﻿using System;
-using LightNode.Server;
+using LightNode2.Server;
 
-namespace LightNode.Diagnostics
+namespace LightNode2.Diagnostics
 {
     public interface ILightNodeLogger
     {

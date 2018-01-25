@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace LightNode.Server
+namespace LightNode2.Server
 {
     internal class RequestPath : IEquatable<RequestPath>
     {

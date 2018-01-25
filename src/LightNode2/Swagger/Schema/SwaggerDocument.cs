@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LightNode.Swagger.Schema
+namespace LightNode2.Swagger.Schema
 {
     [DataContract]
     public class SwaggerDocument

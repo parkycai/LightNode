@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using System.Text;
 
-namespace LightNode.Server
+namespace LightNode2.Server
 {
     internal static class HttpContextHelper
     {

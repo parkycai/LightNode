@@ -1,6 +1,6 @@
-﻿using LightNode.Server;
-using LightNode.Swagger;
-using LightNode.Swagger.Schema;
+﻿using LightNode2.Server;
+using LightNode2.Swagger;
+using LightNode2.Swagger.Schema;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
@@ -14,7 +14,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace LightNode
+namespace LightNode2
 {
     public static class AppBuilderLightNodeSwaggerMiddlewareExtensions
     {
@@ -25,7 +25,7 @@ namespace LightNode
     }
 }
 
-namespace LightNode.Swagger
+namespace LightNode2.Swagger
 {
 
     public class LightNodeSwaggerMiddleware

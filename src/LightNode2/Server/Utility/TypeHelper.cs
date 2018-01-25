@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace LightNode.Server
+namespace LightNode2.Server
 {
     public static class TypeHelper
     {
@@ -36,13 +36,15 @@ namespace LightNode.Server
         public static T GetCustomAttribute<T>(this Type type, bool inherit)
             where T : Attribute
         {
-            return type.GetTypeInfo().GetCustomAttribute<T>(inherit);
+            return CustomAttributeExtensions.GetCustomAttribute<T>(type.GetTypeInfo(), inherit);
+            //return type.GetTypeInfo().GetCustomAttribute<T>(inherit);
         }
 
         public static IEnumerable<T> GetCustomAttributes<T>(this Type type, bool inherit)
             where T : Attribute
         {
-            return type.GetTypeInfo().GetCustomAttributes<T>(inherit);
+            return CustomAttributeExtensions.GetCustomAttributes<T>(type.GetTypeInfo(), inherit);
+            //return type.GetTypeInfo().GetCustomAttributes<T>(inherit);
         }
 
         public static bool IsAssignableFrom(this Type type, Type c)

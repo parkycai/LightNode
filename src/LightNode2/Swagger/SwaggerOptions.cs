@@ -1,9 +1,9 @@
-﻿using LightNode.Swagger.Schema;
+﻿using LightNode2.Swagger.Schema;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 
-namespace LightNode.Swagger
+namespace LightNode2.Swagger
 {
     public class SwaggerOptions
     {

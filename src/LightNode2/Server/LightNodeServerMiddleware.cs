@@ -1,4 +1,4 @@
-﻿using LightNode.Server;
+﻿using LightNode2.Server;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using System;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 
-namespace LightNode
+namespace LightNode2
 {
     public static class ApplicationBuilderLightNodeMiddlewareExtensions
     {
@@ -29,7 +29,7 @@ namespace LightNode
     }
 }
 
-namespace LightNode.Server
+namespace LightNode2.Server
 {
     public class RegisteredHandlersInfo
     {
