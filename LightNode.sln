@@ -110,6 +110,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Original", "Original", "{91
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LightNode2.Core", "src\LightNode2.Core\LightNode2.Core.csproj", "{7161B112-4E24-4726-BA0A-EC91CD988A34}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LightNode2.Formatter.JsonNet", "src\LightNode2.Formatter.JsonNet\LightNode2.Formatter.JsonNet.csproj", "{C21D060D-89D9-43DA-9E98-DF3CD702D0A4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -244,6 +246,10 @@ Global
 		{7161B112-4E24-4726-BA0A-EC91CD988A34}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7161B112-4E24-4726-BA0A-EC91CD988A34}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7161B112-4E24-4726-BA0A-EC91CD988A34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C21D060D-89D9-43DA-9E98-DF3CD702D0A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C21D060D-89D9-43DA-9E98-DF3CD702D0A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C21D060D-89D9-43DA-9E98-DF3CD702D0A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C21D060D-89D9-43DA-9E98-DF3CD702D0A4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -281,6 +287,7 @@ Global
 		{AAFA9D36-DB57-4CA2-9137-05CC4B9EC4D1} = {04B4FBC7-68FF-4FD3-ADF0-A037BF260C19}
 		{0EA8F2C9-A92C-4EE3-B43B-9A96498B6800} = {04B4FBC7-68FF-4FD3-ADF0-A037BF260C19}
 		{7161B112-4E24-4726-BA0A-EC91CD988A34} = {3FAAB980-DC9B-4A13-B76C-AD86312F0A42}
+		{C21D060D-89D9-43DA-9E98-DF3CD702D0A4} = {3FAAB980-DC9B-4A13-B76C-AD86312F0A42}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CC9CF383-69F5-4921-A40A-2C1524BE4D21}
