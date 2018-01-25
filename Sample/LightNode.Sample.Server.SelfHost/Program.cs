@@ -21,9 +21,13 @@ namespace LightNode.Sample.Server.SelfHost
         }
     }
 
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
     public class Startup
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
     {
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         public void Configuration(Owin.IAppBuilder app)
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
         {
             app.Map("/api", builder =>
             {
@@ -51,7 +55,9 @@ namespace LightNode.Sample.Server.SelfHost
 
     [Authentication(Order = 1)]
     [Session(Order = 2)]
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
     public class Member : LightNodeContract
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
     {
         /// <summary>
         /// aaa
@@ -82,7 +88,9 @@ namespace LightNode.Sample.Server.SelfHost
         }
 
         [Get, Post, Put]
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         public void Hoge(string p)
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
         {
             var hoge = LightNodeServerMiddleware.GetRegisteredHandlersInfo();
 
@@ -92,9 +100,13 @@ namespace LightNode.Sample.Server.SelfHost
     }
 
     // dummy
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
     public class AuthenticationAttribute : LightNodeFilterAttribute
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
     {
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         public override async Task Invoke(OperationContext operationContext, Func<Task> next)
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
         {
             await Task.Delay(TimeSpan.FromMilliseconds(23));
             await next();
@@ -102,9 +114,13 @@ namespace LightNode.Sample.Server.SelfHost
     }
 
     // dummy
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
     public class SessionAttribute : LightNodeFilterAttribute
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
     {
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         public override async Task Invoke(OperationContext operationContext, Func<Task> next)
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
         {
             await Task.Delay(TimeSpan.FromMilliseconds(10));
             await next();
@@ -112,10 +128,18 @@ namespace LightNode.Sample.Server.SelfHost
         }
     }
 
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
     public class Person
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
     {
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         public int Age { get; set; }
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         public string FirstName { get; set; }
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         public string LastName { get; set; }
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
     }
 }
