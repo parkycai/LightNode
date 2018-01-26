@@ -8,10 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.Runtime" Version="4.3.0" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Reference Include="mscorlib">
       <HintPath>mscorlib</HintPath>
     </Reference>
