@@ -8,18 +8,18 @@
 <#@ import namespace="System.Threading.Tasks" #>
 <#@ import namespace="System.Collections.Generic" #>
 <#@ output extension="Generated.cs" encoding="utf-8" #>
-<#@ assembly name="$(SolutionDir)\Performance/LightNode2.Performance/bin/Debug/netcoreapp2.0/LightNode2.Performance.dll" #>
 <#
     // ------------- T4 Configuration ------------- //
-    
-    // 1. Set LightNodeContract assemblies(and all dependency) path to above #@ assembly name # directive
+
+    // 1. Set LightNodeContract assemblies(and all dependency) path to follow
+	var assemblies = new [] { $"{Environment.CurrentDirectory}/../Performance/LightNode2.Performance/bin/Debug/netcoreapp2.0/LightNode2.Performance.dll", };
 
     // 2. Set Namespace & ClientName & Namespace
-    var clientName = "LightNodeClient";
+    var clientName = "LightNode2Client";
     var namespaceName = "LightNode2.Client";
 
     // 3. Set DefaultContentFormatter Construct String
-    var defaultContentFormatter = "new LightNode2.Formatter.JsonNetContentFormatter()";
+    var defaultContentFormatter = "new LightNode2.Formatter.JsonContentFormatter()";
 
     // 4. Set Additional using Namespace
     var usingNamespaces = new [] {"System.Linq"};
@@ -45,8 +45,8 @@
 
     var ignoreMethods = new HashSet<string> { "Equals", "GetHashCode", "GetType", "ToString" };
 
-    var typeFromAssemblies = System.AppDomain.CurrentDomain
-        .GetAssemblies()
+    //var typeFromAssemblies = System.AppDomain.CurrentDomain.GetAssemblies()
+	var typeFromAssemblies = assemblies.Select(x => Assembly.LoadFrom(x))
         .Where(x => !Regex.IsMatch(x.GetName().Name, "^(mscorlib|System|Sytem.Web|EnvDTE)$"))
         .SelectMany(x => x.GetTypes())
         .Where(x => x != null && x.FullName != "LightNode2.Server.LightNodeContract");
@@ -106,7 +106,7 @@
                         {
                             @base += " = " + (
                                 (p.DefaultValue == null) ? "null"
-                              : (p.DefaultValue is string) ? "\"" + p.DefaultValue + "\"" 
+                              : (p.DefaultValue is string) ? "\"" + p.DefaultValue + "\""
                               : (p.DefaultValue is CancellationToken) ? "default(CancellationToken)"
                               : (p.ParameterType.IsEnum) ? p.ParameterType.ToString() + "." + p.DefaultValue.ToString()
                               : p.DefaultValue.ToString().ToLower());
@@ -317,7 +317,7 @@ namespace <#= namespaceName #>
 <# } #>
 }
 
-<#+  
+<#+
     void WriteParameter(Type parameterType, string parameterName)
     {
         if(parameterType == typeof(string))

@@ -22,7 +22,7 @@ namespace LightNode2.Client.Generator
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+    #line 1 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
     public partial class LightNodeClientGenerator : LightNodeClientGeneratorBase
     {
@@ -33,18 +33,19 @@ namespace LightNode2.Client.Generator
         public virtual string TransformText()
         {
             
-            #line 12 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 11 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
 
     // ------------- T4 Configuration ------------- //
-    
-    // 1. Set LightNodeContract assemblies(and all dependency) path to above #@ assembly name # directive
+
+    // 1. Set LightNodeContract assemblies(and all dependency) path to follow
+	var assemblies = new [] { $"{Environment.CurrentDirectory}/../Performance/LightNode2.Performance/bin/Debug/netcoreapp2.0/LightNode2.Performance.dll", };
 
     // 2. Set Namespace & ClientName & Namespace
-    var clientName = "LightNodeClient";
+    var clientName = "LightNode2Client";
     var namespaceName = "LightNode2.Client";
 
     // 3. Set DefaultContentFormatter Construct String
-    var defaultContentFormatter = "new LightNode2.Formatter.JsonNetContentFormatter()";
+    var defaultContentFormatter = "new LightNode2.Formatter.JsonContentFormatter()";
 
     // 4. Set Additional using Namespace
     var usingNamespaces = new [] {"System.Linq"};
@@ -70,8 +71,8 @@ namespace LightNode2.Client.Generator
 
     var ignoreMethods = new HashSet<string> { "Equals", "GetHashCode", "GetType", "ToString" };
 
-    var typeFromAssemblies = System.AppDomain.CurrentDomain
-        .GetAssemblies()
+    //var typeFromAssemblies = System.AppDomain.CurrentDomain.GetAssemblies()
+	var typeFromAssemblies = assemblies.Select(x => Assembly.LoadFrom(x))
         .Where(x => !Regex.IsMatch(x.GetName().Name, "^(mscorlib|System|Sytem.Web|EnvDTE)$"))
         .SelectMany(x => x.GetTypes())
         .Where(x => x != null && x.FullName != "LightNode2.Server.LightNodeContract");
@@ -131,7 +132,7 @@ namespace LightNode2.Client.Generator
                         {
                             @base += " = " + (
                                 (p.DefaultValue == null) ? "null"
-                              : (p.DefaultValue is string) ? "\"" + p.DefaultValue + "\"" 
+                              : (p.DefaultValue is string) ? "\"" + p.DefaultValue + "\""
                               : (p.DefaultValue is CancellationToken) ? "default(CancellationToken)"
                               : (p.ParameterType.IsEnum) ? p.ParameterType.ToString() + "." + p.DefaultValue.ToString()
                               : p.DefaultValue.ToString().ToLower());
@@ -172,49 +173,49 @@ namespace LightNode2.Client.Generator
                     "ystem.IO;\r\nusing System.Net.Http;\r\nusing System.Threading;\r\nusing System.Threadi" +
                     "ng.Tasks;\r\n");
             
-            #line 150 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 150 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(string.Join("\r\n", usingNamespaces.Select(x => "using " + x + ";"))));
             
             #line default
             #line hidden
             this.Write("\r\n\r\nnamespace ");
             
-            #line 152 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 152 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(namespaceName));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n#if DEBUG\r\n    public partial class ");
             
-            #line 155 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 155 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(clientName));
             
             #line default
             #line hidden
             this.Write(" : ");
             
-            #line 155 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 155 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(string.Join(", ", contracts.Select(x => x.InterfaceName))));
             
             #line default
             #line hidden
             this.Write("\r\n#else\r\n    public partial class ");
             
-            #line 157 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 157 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(clientName));
             
             #line default
             #line hidden
             this.Write(" : ");
             
-            #line 157 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 157 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(string.Join(", ", contracts.Where(x => !x.IsDebugOnly).Select(x => x.InterfaceName))));
             
             #line default
             #line hidden
             this.Write("\r\n#endif\r\n    {\r\n        static IContentFormatter defaultContentFormatter = ");
             
-            #line 160 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 160 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(defaultContentFormatter));
             
             #line default
@@ -251,63 +252,63 @@ namespace LightNode2.Client.Generator
 
 ");
             
-            #line 190 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 190 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
  foreach(var contract in contracts.Where(x => !x.IsDebugOnly)) { 
             
             #line default
             #line hidden
             this.Write("        public ");
             
-            #line 191 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 191 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(contract.InterfaceName));
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 191 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 191 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(contract.RootName));
             
             #line default
             #line hidden
             this.Write(" { get { return this; } }\r\n");
             
-            #line 192 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 192 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
  } 
             
             #line default
             #line hidden
             this.Write("\r\n#if DEBUG\r\n");
             
-            #line 195 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 195 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
  foreach(var contract in contracts.Where(x => x.IsDebugOnly)) { 
             
             #line default
             #line hidden
             this.Write("        public ");
             
-            #line 196 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 196 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(contract.InterfaceName));
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 196 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 196 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(contract.RootName));
             
             #line default
             #line hidden
             this.Write(" { get { return this; } }\r\n");
             
-            #line 197 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 197 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
  } 
             
             #line default
             #line hidden
             this.Write("#endif\r\n\r\n        public ");
             
-            #line 200 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 200 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(clientName));
             
             #line default
@@ -322,7 +323,7 @@ namespace LightNode2.Client.Generator
 
         public ");
             
-            #line 208 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 208 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(clientName));
             
             #line default
@@ -337,7 +338,7 @@ namespace LightNode2.Client.Generator
 
         public ");
             
-            #line 216 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 216 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(clientName));
             
             #line default
@@ -367,508 +368,508 @@ namespace LightNode2.Client.Generator
 
 ");
             
-            #line 239 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 239 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
  foreach(var contract in contracts) { 
             
             #line default
             #line hidden
             this.Write("        #region ");
             
-            #line 240 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 240 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(contract.InterfaceName));
             
             #line default
             #line hidden
             this.Write("\r\n\r\n");
             
-            #line 242 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 242 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
  if(contract.IsDebugOnly) { 
             
             #line default
             #line hidden
             this.Write("#if DEBUG\r\n");
             
-            #line 244 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 244 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
  } 
             
             #line default
             #line hidden
             this.Write("\r\n");
             
-            #line 246 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 246 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
  foreach(var operation in contract.Operations) { 
             
             #line default
             #line hidden
             
-            #line 247 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 247 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
  if(operation.IsDebugOnly) { 
             
             #line default
             #line hidden
             this.Write("#if DEBUG\r\n");
             
-            #line 249 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 249 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
  } 
             
             #line default
             #line hidden
             this.Write("\r\n        ");
             
-            #line 251 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 251 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(BeautifyType(operation.ReturnType)));
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 251 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 251 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(contract.InterfaceName));
             
             #line default
             #line hidden
             this.Write(".");
             
-            #line 251 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 251 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(operation.OperationName + ((addAsyncSuffix) ? "Async" : "")));
             
             #line default
             #line hidden
             this.Write("(");
             
-            #line 251 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 251 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(operation.ParameterString));
             
             #line default
             #line hidden
             this.Write(")\r\n        {\r\n            HttpContent __content = null;\r\n");
             
-            #line 254 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 254 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
  if(operation.Parameters.Any(x => x.ParameterType == typeof(byte[]))) { 
             
             #line default
             #line hidden
             this.Write("            var __multi = new MultipartFormDataContent();\r\n");
             
-            #line 256 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 256 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
  foreach(var parameter in operation.Parameters.Where(x => x.Name != "cancellationToken")) { 
             
             #line default
             #line hidden
             
-            #line 257 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 257 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
  if(parameter.ParameterType == typeof(byte[])) { 
             
             #line default
             #line hidden
             this.Write("            __multi.Add(new ByteArrayContent(");
             
-            #line 258 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 258 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(parameter.Name));
             
             #line default
             #line hidden
             this.Write("), \"");
             
-            #line 258 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 258 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(parameter.Name));
             
             #line default
             #line hidden
             this.Write("\");\r\n");
             
-            #line 259 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 259 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
  } else if (parameter.ParameterType.IsArray) { 
             
             #line default
             #line hidden
             this.Write("            if (");
             
-            #line 260 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 260 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(parameter.Name));
             
             #line default
             #line hidden
             this.Write(" != null) foreach(var __x in ");
             
-            #line 260 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 260 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(parameter.Name));
             
             #line default
             #line hidden
             this.Write(") { __multi.Add(new StringContent(");
             
-            #line 260 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 260 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
  WriteParameter(parameter.ParameterType.GetElementType(), "__x"); 
             
             #line default
             #line hidden
             this.Write("), \"");
             
-            #line 260 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 260 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(parameter.Name));
             
             #line default
             #line hidden
             this.Write("\"); }\r\n");
             
-            #line 261 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 261 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
  } else if(parameter.ParameterType.IsClass || (parameter.ParameterType.IsGenericType && parameter.ParameterType.GetGenericTypeDefinition() == typeof(Nullable<>))) { 
             
             #line default
             #line hidden
             this.Write("            if (");
             
-            #line 262 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 262 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(parameter.Name));
             
             #line default
             #line hidden
             this.Write(" != null) __multi.Add(new StringContent(");
             
-            #line 262 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 262 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
  WriteParameter(parameter.ParameterType, parameter.Name); 
             
             #line default
             #line hidden
             this.Write("), \"");
             
-            #line 262 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 262 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(parameter.Name));
             
             #line default
             #line hidden
             this.Write("\");\r\n");
             
-            #line 263 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 263 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
  } else { 
             
             #line default
             #line hidden
             this.Write("            __multi.Add(new StringContent(");
             
-            #line 264 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 264 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
  WriteParameter(parameter.ParameterType, parameter.Name); 
             
             #line default
             #line hidden
             this.Write("), \"");
             
-            #line 264 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 264 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(parameter.Name));
             
             #line default
             #line hidden
             this.Write("\");\r\n");
             
-            #line 265 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 265 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
  } 
             
             #line default
             #line hidden
             
-            #line 266 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 266 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
  } 
             
             #line default
             #line hidden
             this.Write("            __content = __multi;\r\n");
             
-            #line 268 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 268 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
  } 
             
             #line default
             #line hidden
             
-            #line 269 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 269 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
  else { 
             
             #line default
             #line hidden
             this.Write("            var list = new List<KeyValuePair<string, string>>(");
             
-            #line 270 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 270 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(operation.Parameters.Length - 1));
             
             #line default
             #line hidden
             this.Write(");\r\n");
             
-            #line 271 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 271 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
  foreach(var parameter in operation.Parameters.Where(x => x.Name != "cancellationToken")) { 
             
             #line default
             #line hidden
             
-            #line 272 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 272 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
  if (parameter.ParameterType.IsArray) { 
             
             #line default
             #line hidden
             this.Write("            if (");
             
-            #line 273 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 273 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(parameter.Name));
             
             #line default
             #line hidden
             this.Write(" != null) list.AddRange(");
             
-            #line 273 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 273 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(parameter.Name));
             
             #line default
             #line hidden
             this.Write(".Select(___x => new KeyValuePair<string, string>(\"");
             
-            #line 273 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 273 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(parameter.Name));
             
             #line default
             #line hidden
             this.Write("\", ");
             
-            #line 273 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 273 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
  WriteParameter(parameter.ParameterType.GetElementType(), "___x"); 
             
             #line default
             #line hidden
             this.Write(")));\r\n");
             
-            #line 274 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 274 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
  } else if(parameter.ParameterType.IsClass || (parameter.ParameterType.IsGenericType && parameter.ParameterType.GetGenericTypeDefinition() == typeof(Nullable<>))) { 
             
             #line default
             #line hidden
             this.Write("            if (");
             
-            #line 275 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 275 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(parameter.Name));
             
             #line default
             #line hidden
             this.Write(" != null) list.Add(new KeyValuePair<string, string>(\"");
             
-            #line 275 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 275 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(parameter.Name));
             
             #line default
             #line hidden
             this.Write("\", ");
             
-            #line 275 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 275 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
  WriteParameter(parameter.ParameterType, parameter.Name); 
             
             #line default
             #line hidden
             this.Write("));\r\n");
             
-            #line 276 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 276 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
  } else { 
             
             #line default
             #line hidden
             this.Write("            list.Add(new KeyValuePair<string, string>(\"");
             
-            #line 277 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 277 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(parameter.Name));
             
             #line default
             #line hidden
             this.Write("\", ");
             
-            #line 277 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 277 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
  WriteParameter(parameter.ParameterType, parameter.Name); 
             
             #line default
             #line hidden
             this.Write("));\r\n");
             
-            #line 278 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 278 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
  } 
             
             #line default
             #line hidden
             
-            #line 279 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 279 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
  } 
             
             #line default
             #line hidden
             this.Write("            __content = new FormUrlEncodedContent(list);\r\n");
             
-            #line 281 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 281 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
  } 
             
             #line default
             #line hidden
             this.Write("            return PostAsync");
             
-            #line 282 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 282 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(operation.ReturnType == typeof(Task) ? "" : "<" + UnwrapTask(operation.ReturnType) + ">"));
             
             #line default
             #line hidden
             this.Write("(\"/");
             
-            #line 282 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 282 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(contract.RootName));
             
             #line default
             #line hidden
             this.Write("/");
             
-            #line 282 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 282 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(operation.OperationName));
             
             #line default
             #line hidden
             this.Write("\", __content, cancellationToken);\r\n        }\r\n");
             
-            #line 284 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 284 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
  if(operation.IsDebugOnly) { 
             
             #line default
             #line hidden
             this.Write("#endif\r\n");
             
-            #line 286 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 286 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
  } 
             
             #line default
             #line hidden
             this.Write("\r\n");
             
-            #line 288 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 288 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
  } 
             
             #line default
             #line hidden
             this.Write("\r\n");
             
-            #line 290 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 290 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
  if(contract.IsDebugOnly) { 
             
             #line default
             #line hidden
             this.Write("#endif\r\n");
             
-            #line 292 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 292 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
  } 
             
             #line default
             #line hidden
             this.Write("        #endregion\r\n\r\n");
             
-            #line 295 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 295 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
  } 
             
             #line default
             #line hidden
             this.Write("    }\r\n\r\n");
             
-            #line 298 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 298 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
  foreach(var contract in contracts) { 
             
             #line default
             #line hidden
             
-            #line 299 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 299 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
  if (contract.IsDebugOnly) { 
             
             #line default
             #line hidden
             this.Write("#if DEBUG\r\n");
             
-            #line 301 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 301 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
  } 
             
             #line default
             #line hidden
             this.Write("    public interface ");
             
-            #line 302 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 302 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(contract.InterfaceName));
             
             #line default
             #line hidden
             this.Write("\r\n    {\r\n");
             
-            #line 304 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 304 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
  foreach(var operation in contract.Operations) { 
             
             #line default
             #line hidden
             
-            #line 305 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 305 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
  if(operation.IsDebugOnly) { 
             
             #line default
             #line hidden
             this.Write("#if DEBUG\r\n");
             
-            #line 307 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 307 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
  } 
             
             #line default
             #line hidden
             this.Write("        ");
             
-            #line 308 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 308 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(BeautifyType(operation.ReturnType)));
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 308 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 308 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(operation.OperationName + ((addAsyncSuffix) ? "Async" : "")));
             
             #line default
             #line hidden
             this.Write("(");
             
-            #line 308 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 308 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(operation.ParameterStringWithOptional));
             
             #line default
             #line hidden
             this.Write(");\r\n");
             
-            #line 309 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 309 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
  if(operation.IsDebugOnly) { 
             
             #line default
             #line hidden
             this.Write("#endif\r\n");
             
-            #line 311 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 311 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
  } 
             
             #line default
             #line hidden
             
-            #line 312 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 312 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
  } 
             
             #line default
             #line hidden
             this.Write("    }\r\n");
             
-            #line 314 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 314 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
  if (contract.IsDebugOnly) { 
             
             #line default
             #line hidden
             this.Write("#endif\r\n");
             
-            #line 316 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 316 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
  } 
             
             #line default
             #line hidden
             
-            #line 317 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+            #line 317 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
  } 
             
             #line default
@@ -892,8 +893,8 @@ namespace LightNode2.Client.Generator
             }
         }
         
-        #line 320 "D:\Github\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
-  
+        #line 320 "D:\GitHub\guitarrapc\LightNode\src\LightNode2.Client.Generator\LightNodeClientGenerator.tt"
+
     void WriteParameter(Type parameterType, string parameterName)
     {
         if(parameterType == typeof(string))
