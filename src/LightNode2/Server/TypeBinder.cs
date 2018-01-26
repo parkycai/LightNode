@@ -219,6 +219,17 @@ namespace LightNode2.Server
                     else return new SByte[0];
                 }
                 return result;
+            }},
+            {typeof(Byte[]), (IList<string> xs) =>
+            {
+                var result = new Byte[xs.Count];
+                for (int i = 0; i < xs.Count; i++)
+                {
+                    Byte @out;
+                    if (Byte.TryParse(xs[i], out @out)) result[i] = @out;
+                    else return new Byte[0];
+                }
+                return result;
             }}
         };
 
