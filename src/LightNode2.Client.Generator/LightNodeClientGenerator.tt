@@ -11,21 +11,32 @@
 <#
     // ------------- T4 Configuration ------------- //
 
-    // 1. Set LightNodeContract assemblies(and all dependency) path to follow
-	var assemblies = new [] { $"{Environment.CurrentDirectory}/../Performance/LightNode2.Performance/bin/Debug/netcoreapp2.0/LightNode2.Performance.dll", };
+		// 1. Set LightNodeContract assemblies(and all dependency) path to follow
+		var assemblies = new [] { $"{Environment.CurrentDirectory}/../Performance/LightNode2.Performance/bin/Debug/netcoreapp2.0/LightNode2.Performance.dll", };
 
-    // 2. Set Namespace & ClientName & Namespace
-    var clientName = "LightNode2Client";
-    var namespaceName = "LightNode2.Client";
+		// 2. Set Namespace & ClientName & Namespace
+		var clientName = "LightNode2Client";
+		var namespaceName = "LightNode2.Client";
 
-    // 3. Set DefaultContentFormatter Construct String
-    var defaultContentFormatter = "new LightNode2.Formatter.JsonContentFormatter()";
+		// 3. Set DefaultContentFormatter Construct String
+		var defaultContentFormatter = "new LightNode2.Formatter.JsonContentFormatter()";
 
-    // 4. Set Additional using Namespace
-    var usingNamespaces = new [] {"System.Linq"};
+		// 4. Set Additional using Namespace
+		var usingNamespaces = new [] {"System.Linq"};
 
-    // 5. Set append "Async" suffix to method name(ex: CalcAsync or Calc)
-    var addAsyncSuffix = true;
+		// 5. Set append "Async" suffix to method name(ex: CalcAsync or Calc)
+		var addAsyncSuffix = true;
+
+		// extra. Commandline Argument override settings
+		if (CommandlineOptions != null)
+		{
+			assemblies = CommandlineOptions.InputDllPathes;
+			clientName = CommandlineOptions.ClientName;
+			namespaceName = CommandlineOptions.NameSpaceName;
+			defaultContentFormatter = CommandlineOptions.ResolverName;
+			usingNamespaces = CommandlineOptions.UsingNamespaces;
+			addAsyncSuffix = !CommandlineOptions.RemoveAsyncSuffix;
+		}
 
     // ----------End T4 Configuration ------------- //
 

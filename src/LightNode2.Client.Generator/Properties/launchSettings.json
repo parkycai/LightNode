@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "LightNode2.Client.Generator": {
+      "commandName": "Project",
+      "commandLineArgs": "-i \"D:\\GitHub\\guitarrapc\\LightNode\\src\\Performance\\LightNode2.Performance\\bin\\Debug\\netcoreapp2.0\\LightNode2.Performance.dll\" -o D:\\hoge.cs"
+    }
+  }
+}
