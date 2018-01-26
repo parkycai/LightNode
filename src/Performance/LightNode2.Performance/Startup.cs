@@ -1,23 +1,38 @@
-﻿using LightNode.Server;
-using Owin;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Serialization;
-using System.Web;
+using System.Threading.Tasks;
+using LightNode2.Server;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.DependencyInjection;
 
-namespace LightNode.Performance
+namespace LightNode2.Performance
 {
     public class Startup
     {
-        public void Configuration(IAppBuilder app)
+        // This method gets called by the runtime. Use this method to add services to the container.
+        // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
+        public void ConfigureServices(IServiceCollection services)
         {
-            app.UseLightNode(new LightNode.Server.LightNodeOptions(Server.AcceptVerbs.Get | Server.AcceptVerbs.Post,
-                new LightNode.Formatter.JsonNetContentFormatter()));
+        }
+
+        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        {
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+
+            var option = new LightNodeOptions(AcceptVerbs.Get | AcceptVerbs.Post, new Formatter.JsonContentFormatter());
+            app.UseLightNode(option, new[] { typeof(Startup).Assembly });
         }
     }
 
-    public class Perf : LightNode.Server.LightNodeContract
+
+    public class Perf : LightNodeContract
     {
         public MyClass Echo(string name, int x, int y, MyEnum e)
         {
@@ -61,12 +76,12 @@ namespace LightNode.Performance
             return xs;
         }
 
-        [LightNode.Server.IgnoreOperation]
+        [IgnoreOperation]
         public void Ignore(string a)
         {
         }
 
-        [LightNode.Server.IgnoreClientGenerate]
+        [IgnoreClientGenerate]
         public void IgnoreClient(string a)
         {
         }
@@ -85,8 +100,9 @@ namespace LightNode.Performance
         {
         }
     }
+
     [DebugOnlyClientGenerate]
-    public class DebugOnlyMethodTest :LightNodeContract
+    public class DebugOnlyMethodTest : LightNodeContract
     {
         [DebugOnlyClientGenerate]
         public void Hoge()

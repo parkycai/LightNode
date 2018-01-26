@@ -12,7 +12,7 @@ namespace LightNode.Client
 #if DEBUG
     public partial class LightNodeClient : _IPerf, _IDebugOnlyTest, _IDebugOnlyMethodTest
 #else
-    public partial class LightNodeClient : _IPerf, _IDebugOnlyMethodTest
+    public partial class LightNodeClient : _IPerf
 #endif
     {
         static IContentFormatter defaultContentFormatter = new LightNode.Formatter.JsonNetContentFormatter();
@@ -46,10 +46,10 @@ namespace LightNode.Client
         }
 
         public _IPerf Perf { get { return this; } }
-        public _IDebugOnlyMethodTest DebugOnlyMethodTest { get { return this; } }
 
 #if DEBUG
         public _IDebugOnlyTest DebugOnlyTest { get { return this; } }
+        public _IDebugOnlyMethodTest DebugOnlyMethodTest { get { return this; } }
 #endif
 
         public LightNodeClient(string rootEndPoint)
@@ -231,6 +231,7 @@ namespace LightNode.Client
 
         #region _IDebugOnlyMethodTest
 
+#if DEBUG
 
 #if DEBUG
 
@@ -244,6 +245,7 @@ namespace LightNode.Client
 #endif
 
 
+#endif
         #endregion
 
     }
@@ -267,11 +269,13 @@ namespace LightNode.Client
         System.Threading.Tasks.Task HogeAsync(System.Threading.CancellationToken cancellationToken = default(CancellationToken));
     }
 #endif
+#if DEBUG
     public interface _IDebugOnlyMethodTest
     {
 #if DEBUG
         System.Threading.Tasks.Task HogeAsync(System.Threading.CancellationToken cancellationToken = default(CancellationToken));
 #endif
     }
+#endif
 }
 
