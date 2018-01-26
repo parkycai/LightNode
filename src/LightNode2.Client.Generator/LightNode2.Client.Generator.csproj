@@ -28,21 +28,6 @@
     </Reference>
   </ItemGroup>
 
-  <!--<ItemGroup>
-    <Compile Include="LightNodeClient.Generated.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>LightNodeClient.tt</DependentUpon>
-    </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="LightNodeClient.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>LightNodeClient.Generated.cs</LastGenOutput>
-    </None>
-  </ItemGroup>-->
-
   <ItemGroup>
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
   </ItemGroup>
