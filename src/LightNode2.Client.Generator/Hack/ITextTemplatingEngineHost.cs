@@ -9,7 +9,6 @@ using System.Text;
 
 namespace Microsoft.VisualStudio.TextTemplating
 {
-    [CLSCompliant(true)]
     public interface ITextTemplatingEngineHost
     {
         IList<string> StandardAssemblyReferences { get; }

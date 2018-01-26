@@ -12,11 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\LightNode2.Core\LightNode2.Core.csproj" />
-    <ProjectReference Include="..\LightNode2.Formatter.Json\LightNode2.Formatter.Json.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Reference Include="mscorlib">
       <HintPath>mscorlib</HintPath>
     </Reference>
