@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\LightNode2\LightNode2.csproj" />
+    <ProjectReference Include="..\..\LightNode2\LightNode2.csproj" />
   </ItemGroup>
 
 </Project>

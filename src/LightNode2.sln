@@ -1,25 +1,25 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2024
+VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LightNode2.Core", "LightNode2.Core\LightNode2.Core.csproj", "{988B970E-132D-4C5F-95ED-170F2174D71D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LightNode2.Formatter.Jil", "LightNode2.Formatter.Jil\LightNode2.Formatter.Jil.csproj", "{7F7316D1-D83F-4778-90D4-3FF59A8C58FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LightNode2.Formatter.Jil.LZ4", "LightNode2.Formatter.Jil.LZ4\LightNode2.Formatter.Jil.LZ4.csproj", "{85F27598-4C2C-4814-A5DF-7ED5CC236FFA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LightNode2.Formatter.Jil.LZ4", "LightNode2.Formatter.Jil.LZ4\LightNode2.Formatter.Jil.LZ4.csproj", "{85F27598-4C2C-4814-A5DF-7ED5CC236FFA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LightNode2.Formatter.MsgPack", "LightNode2.Formatter.MsgPack\LightNode2.Formatter.MsgPack.csproj", "{6605EC49-A49B-4590-817C-42FF261AE664}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LightNode2.Formatter.MsgPack", "LightNode2.Formatter.MsgPack\LightNode2.Formatter.MsgPack.csproj", "{6605EC49-A49B-4590-817C-42FF261AE664}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LightNode2.Formatter.ProtoBuf", "LightNode2.Formatter.ProtoBuf\LightNode2.Formatter.ProtoBuf.csproj", "{35721DAA-EE59-40EB-95B6-9D58F3E54349}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LightNode2.Formatter.ProtoBuf", "LightNode2.Formatter.ProtoBuf\LightNode2.Formatter.ProtoBuf.csproj", "{35721DAA-EE59-40EB-95B6-9D58F3E54349}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LightNode2", "LightNode2\LightNode2.csproj", "{32759C29-A56B-49FE-BB34-846BA0796927}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LightNode2", "LightNode2\LightNode2.csproj", "{32759C29-A56B-49FE-BB34-846BA0796927}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Demos", "Demos", "{5A7F3A9F-54CF-45F0-9CA7-512D4EAF8061}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASPNetCoreSampleApplication", "ASPNetCoreSampleApplication\ASPNetCoreSampleApplication.csproj", "{15270642-2D4B-4957-B9B8-5442C7288F6F}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LightNode2.Formatter.Json", "LightNode2.Formatter.Json\LightNode2.Formatter.Json.csproj", "{34917191-4491-4C33-9858-2C0C4E9AFEA4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ASPNetCoreSampleApplication", "Demos\ASPNetCoreSampleApplication\ASPNetCoreSampleApplication.csproj", "{79FD1244-1E90-4AFA-B866-539C259DA2C0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,20 +51,20 @@ Global
 		{32759C29-A56B-49FE-BB34-846BA0796927}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{32759C29-A56B-49FE-BB34-846BA0796927}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{32759C29-A56B-49FE-BB34-846BA0796927}.Release|Any CPU.Build.0 = Release|Any CPU
-		{15270642-2D4B-4957-B9B8-5442C7288F6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{15270642-2D4B-4957-B9B8-5442C7288F6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{15270642-2D4B-4957-B9B8-5442C7288F6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{15270642-2D4B-4957-B9B8-5442C7288F6F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{34917191-4491-4C33-9858-2C0C4E9AFEA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{34917191-4491-4C33-9858-2C0C4E9AFEA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{34917191-4491-4C33-9858-2C0C4E9AFEA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{34917191-4491-4C33-9858-2C0C4E9AFEA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79FD1244-1E90-4AFA-B866-539C259DA2C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79FD1244-1E90-4AFA-B866-539C259DA2C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79FD1244-1E90-4AFA-B866-539C259DA2C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79FD1244-1E90-4AFA-B866-539C259DA2C0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{15270642-2D4B-4957-B9B8-5442C7288F6F} = {5A7F3A9F-54CF-45F0-9CA7-512D4EAF8061}
+		{79FD1244-1E90-4AFA-B866-539C259DA2C0} = {5A7F3A9F-54CF-45F0-9CA7-512D4EAF8061}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4D51B99D-110E-4F94-B6C0-500F7D89E751}
